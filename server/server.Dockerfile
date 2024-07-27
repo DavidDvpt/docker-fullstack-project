@@ -14,6 +14,8 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
+RUN cp -r node_modules /app/server
+
 # Expose the port the app runs on
 EXPOSE 8000
 
