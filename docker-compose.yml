@@ -1,21 +1,21 @@
 services:
   client:
-    image: node:20
-    working_dir: /app/client
+    build:
+      context: ./client
+      dockerfile: client.Dockerfile
     volumes:
       - ./client:/app/client
       - ./client/node_modules:/app/client/node_modules
-    command: sh -c "npm install && npm run dev -- --host"
     ports:
       - "3000:5173"
 
   server:
-    image: node:20
-    working_dir: /app/server
+    build:
+      context: ./server
+      dockerfile: server.Dockerfile
     volumes:
       - ./server:/app/server
       - ./server/node_modules:/app/server/node_modules
-    command: sh -c "npm install && npm run dev"
     ports:
       - "8000:8000"
     depends_on:

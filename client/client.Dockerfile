@@ -1,16 +1,20 @@
-ARG NODE_VERSION=20.15.1
+# Use the official Node.js image as the base image
+FROM node:20
 
-FROM --platform=arm64 node:${NODE_VERSION}-alpine AS client
+# Set the working directory in the container
+WORKDIR /app/client
 
-WORKDIR /client
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-COPY package.json ./
-COPY package-lock.json ./
-
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application files
 COPY . .
 
-EXPOSE 3000
+# Expose the port the app runs on
+EXPOSE 5173
 
-CMD ["npm", "run dev"]
+# Command to run the application
+CMD ["npm", "run", "dev", "--", "--host"]

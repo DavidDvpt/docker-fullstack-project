@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.get("/", function (req, res) {
-  res.send("hello world et hop blabla");
+  res.send("it's works !!!! ");
 });
 
 export default app;
