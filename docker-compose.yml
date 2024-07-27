@@ -9,24 +9,24 @@ services:
       args:
         NODE_VERSION: *NODE_VERSION
     volumes:
-      - ./client/node_modules:/app/client/node_modules
+      - client_node_modules:/app/client/node_modules
       - ./client:/app/client
     ports:
       - "3000:5173"
-    depends_on:
-      - server
+    # depends_on:
+    #   - server
 
-  server:
-    build:
-      context: ./server
-      dockerfile: server.Dockerfile
-      args:
-        NODE_VERSION: *NODE_VERSION
-    volumes:
-      - ./server/node_modules:/app/server/node_modules
-      - ./server:/app/server
-    ports:
-      - "8000:8000"
+  # server:
+  #   build:
+  #     context: ./server
+  #     dockerfile: server.Dockerfile
+  #     args:
+  #       NODE_VERSION: *NODE_VERSION
+  #   volumes:
+  #     - ./server/node_modules:/app/server/node_modules
+  #     - ./server:/app/server
+  #   ports:
+  #     - "8000:8000"
   # depends_on:
   #   - mysql
 #   mysql:
@@ -47,5 +47,6 @@ services:
 #       timeout: 10s
 #       retries: 5
 
-# volumes:
+volumes:
+  client_node_modules:
 #   mysql_data:
