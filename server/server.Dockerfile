@@ -1,6 +1,7 @@
-# Use the official Node.js image as the base image
-FROM node:20
+ARG NODE_VERSION=20
 
+# Use the official Node.js image as the base image
+FROM node:${NODE_VERSION}
 # Set the working directory in the container
 WORKDIR /app/server
 

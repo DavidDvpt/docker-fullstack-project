@@ -1,11 +1,16 @@
+x-variables:
+  NODE_VERSION: &NODE_VERSION 20
+
 services:
   client:
     build:
       context: ./client
       dockerfile: client.Dockerfile
-    # volumes:
-    # - ./client:/app/client
-    # - ./client/node_modules:/app/client/node_modules
+      args:
+        NODE_VERSION: *NODE_VERSION
+    volumes:
+      - ./client/node_modules:/app/client/node_modules
+      - ./client:/app/client
     ports:
       - "3000:5173"
     depends_on:
@@ -15,9 +20,11 @@ services:
     build:
       context: ./server
       dockerfile: server.Dockerfile
-    # volumes:
-    #   - ./server:/app/server
-    #   - ./server/node_modules:/app/server/node_modules
+      args:
+        NODE_VERSION: *NODE_VERSION
+    volumes:
+      - ./server/node_modules:/app/server/node_modules
+      - ./server:/app/server
     ports:
       - "8000:8000"
   # depends_on:
