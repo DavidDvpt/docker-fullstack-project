@@ -4,7 +4,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "ESNext",
-    "rootDir": "./src",
     "moduleResolution": "node",
     "baseUrl": "./src",
     "resolveJsonModule": true,
@@ -17,6 +16,6 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts", "prisma/**/*.ts"],
   "exclude": ["node_modules"]
 }

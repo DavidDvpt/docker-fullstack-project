@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon --watch src --exec tsx src/server.ts",
     "build": "tsc",
     "test": "jest --watchAll",
-    "pm": "npx prisma migrate dev --name init"
+    "pg": "npx prisma generate",
+    "pm": "npx prisma migrate dev",
+    "pr": "npx prisma migrate reset --force",
+    "ps": "npx prisma studio"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
