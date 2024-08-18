@@ -6,5 +6,6 @@ module.exports = {
   verbose: true,
   forceExit: true,
   modulePaths: ["./src"],
+  setupFilesAfterEnv: ["<rootDir>/src/lib/prisma/singleton.ts"],
   // clearMocks: true,
 };

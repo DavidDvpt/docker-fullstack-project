@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "dev": "nodemon --watch src --exec tsx src/server.ts",
     "build": "tsc",
@@ -40,6 +39,7 @@
     "dotenv": "^16.4.5",
     "eslint": "^9.7.0",
     "globals": "^15.8.0",
+    "jest-mock-extended": "^3.0.7",
     "jest-test": "^1.0.2",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.4",
